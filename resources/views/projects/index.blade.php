@@ -19,8 +19,12 @@
         @foreach ($blog as $item)
         <div class="row">
             <div class="col col-12 bg-danger">
-            <h3>{{$item->title}}</h3>
+            <h3>{{$item->titulo}}</h3>
             <p>{{$item->user->name}}</p>
+            <p>{{$item->FechaInicio}}</p>
+            <p>{{$item->FechaFin}}</p>
+            <p>{{$item->editorial}}</p>
+            <p>{{$item->descripcion}}</p>
             <p class="mt-5"><img src="{{$item->img}}"><br>{{$item->texto}}</p>
             </div>
         </div>    
@@ -32,16 +36,16 @@
         @endisset
     </div>
 
-@else 
-<div class="container ">
-    <div class="row">
-        <div class="col col-12 mt-5">
+    @else 
+    <div class="container ">
+         <div class="row">
+            <div class="col col-12 mt-5">
             <h1 class="text-center ">Lo sentimos, no ha iniciado sesion , no podra ver nada hasta entonces</h1>
         </div>
         
-    </div>
+         </div>
    
-</div>
+    </div>
 
 @endauth
 @endsection

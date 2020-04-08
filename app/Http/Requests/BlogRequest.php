@@ -31,14 +31,14 @@ class BlogRequest extends FormRequest
             'provincia'=>'required',
             'editorial'=>'required',
             'TipoPublicacion'=>'required',
-            'descripcion'=>'required'
+            'descripcion'=>'required',
             
         ];
     }
-    public function messages()
+   /*  public function messages()
     {
         return[
             'title.required'=>"El proyecto necesita un titulo",
         ];
-    }
+    } */
 }

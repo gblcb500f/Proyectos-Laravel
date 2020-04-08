@@ -15,10 +15,10 @@
   
     
     @endauth
-        <p>Titulo: {{$blog->title}}</p>
-        <p>Usuario: {{$blog->autor}}</p>
-        <p>Img: <img src="{{$blog->img}}"></p>
-        <p>Descripcion: {{$blog->descripcion}}</p>
+        <p>Titulo: {{$blog->titulo}}</p>
+        <p>Usuario: {{$blog->user->name}}</p>
+        <p>Fecha inicio: <img src="{{$blog->FechaInicio}}"></p>
+        <p>Fecha fin: {{$blog->FechaFin}}</p>
         <br> 
     
     <a class="btn btn-dark" href="{{route('projects.index')}}">Volver al inicio</a>

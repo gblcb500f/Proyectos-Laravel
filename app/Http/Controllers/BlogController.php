@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\BlogRequest;
 class BlogController extends Controller
 {
@@ -21,9 +21,12 @@ class BlogController extends Controller
     }
     public function store(BlogRequest $request)
     {
+
+        //Blog::created($request->validate());
+        
         $blog = new Blog($request->validated());
         $blog->user()->associate(Auth::user());
-        $blog->save();
+        $blog->save(); 
 
         /*$entrada=$request->all();
         $entrada['user_id']=auth()->user()->id;
@@ -34,7 +37,7 @@ class BlogController extends Controller
         }
        
         Blog::create($request->validated() );*/
-       return redirect()->route('projects.index')->with('status','El proyecto fue creado con exito'); 
+    return redirect()->route('projects.index')->with('status','El proyecto fue creado con exito'); 
     }
     public function show(Blog $blog){
        return view('projects.show',['blog'=>$blog]);

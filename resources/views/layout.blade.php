@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/css/dropzone.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href=" https://code.jquery.com/jquery-3.4.1.min.js " rel=" stylesheet " />
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
 
@@ -35,8 +37,21 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 <script src="/js/date/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     $(document).ready(function() {
-    $('.selector').select2();
+        $('#editorial').select2({
+        ajax: {
+            url: "{{ route('options') }}",
+            type:'POST',
+            dataType:'json'
+        }
+        });
+    $('#provincia').select2();
 
    $('.datepicker').datepicker({
        timepicker:false,

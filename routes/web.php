@@ -1,10 +1,17 @@
 <?php
 
+use App\Http\Controllers\OptionsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
 Route::view('/home', 'home')->name('home');
+
+Route::get('options','OptionsController@Options')->name('options');
+Route::post('options','OptionsController@Options')->name('options');
+
+
+
 Route::resource('blog','BlogController')->names('projects')->parameters(['blog'=>'blog']);
 Route::resource('notas','NotasController');
 Auth::routes();

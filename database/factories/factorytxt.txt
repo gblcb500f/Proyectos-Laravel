@@ -1,0 +1,60 @@
+$factory->define(Candidate::class, function (Faker $faker) {
+    $com = $faker->company;
+    $country = \App\Country::where('ide',724)->first()->id;
+    return [
+        'name' => $com,
+        'cif' => $faker->vat,
+        'code' => $faker->unique()->numberBetween(0,999999999999),
+        'zone_id' => 1,
+        'brand' => $com,
+        'activity' => $faker->jobTitle,
+        'blocked' => $faker->boolean(10),
+        'LOPD' => $faker->boolean(90),
+        'address' => $faker->streetAddress,
+        'address_num' => $faker->buildingNumber,
+        'esc' => $faker->randomLetter,
+        'floor' => $faker->numberBetween(1,12),
+        'door' => $faker->numberBetween(1,56),
+        'cp' => $faker->postcode,
+        'city' => 'ALBAL',
+        'municipio_id' => '46007',
+        'municipio' => 'Albal',
+        'province_id' => 46,
+        'country_id' => $country,
+        'phone' => $faker->numerify('9s########'),
+        'phone2' => $faker->numerify('9########'),
+        'fax' => $faker->numerify('9########'),
+        'mobile' => $faker->numerify('6########'),
+        'mobile_owner' => $faker->firstName,
+        'email' => $faker->companyEmail,
+        'email2' => $faker->freeEmail,
+        'chief' => $faker->name,
+        'SMS' => $faker->boolean(80),
+        'newsletter' => $faker->boolean(70),
+        'anexo_1' => $faker->boolean(70),
+        'PYME' => $faker->boolean(70),
+        'RLT' => $faker->boolean(70),
+        'CSS' => $faker->boolean(10),
+        'new_creation' => $faker->boolean(20),
+
+        'legal_agent_nif' => $faker->vat,
+        'legal_agent_name' => $faker->firstName,
+        'legal_agent_lastname' => $faker->lastName,
+        'legal_agent_lastname2' => $faker->lastName,
+        'legal_agent_position' => $faker->jobTitle,
+
+        'legal_agent2_nif' => '',
+        'legal_agent2_name' => '',
+        'legal_agent2_lastname' => '',
+        'legal_agent2_lastname2' => '',
+        'legal_agent2_position' => '',
+
+        'observations' => $faker->realText(),
+        'RERA' => '',
+
+
+        'CCCNSS' => $faker->numberBetween(100000000000,999999999999),
+
+        'taxable_zone_id' => $faker->numberBetween(1,3),
+    ];
+});

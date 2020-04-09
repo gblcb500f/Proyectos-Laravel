@@ -186,17 +186,17 @@
           </div>
           <div class="col-md-4 mb-3">
             <label for="validationCustom04">Editorial</label>
-            <select class="selector col-10" id="editorial" name="editorial" ></select>
+            <select class="selector form-control" id="editorial" name="editorial" ></select>
           </div>
           <div class="col-md-4 mb-3">
             <label for="validationCustom05">Tipo publicacion</label>
-            <input type="text" name="TipoPublicacion" placeholder="">
+            <input type="text" name="TipoPublicacion" placeholder="" class="form-control">
           </div>
         </div>
         <div class="form-row">
-            <div class="col-md-4 mb-3">
+            <div class="col mb-3">
               <label for="validationCustom01">Descripcion</label><br>
-              <textarea class="mt-5" name="descripcion" id="" cols="100" rows="5"></textarea>
+              <textarea class="form-control mt-5" name="descripcion" id="" rows="5"></textarea>
             </div>
         </div>
             <button class="btn btn-primary" type="submit">{{$btnText}}</button>

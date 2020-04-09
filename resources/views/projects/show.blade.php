@@ -4,7 +4,7 @@
 
 <div class="container">
     @auth
-    <h1>{{$blog->title}}</h1>
+    <h1>{{$blog->titulo}}</h1>
    
         <a class="btn btn-dark" href="{{route('projects.edit',$blog->id)}}">Editar</a> 
          <form action="{{route('projects.destroy',$blog->id)}}" method="post">
